@@ -8,4 +8,4 @@ class RecurringGetScheduleBuilderTest(unittest.TestCase):
         builder = RecurringGetScheduleBuilder('12345')
 
         params = builder.get_params()
-        self.assertEquals('12345', params.get('pg_recurring_profile'))
+        self.assertEqual('12345', params.get('pg_recurring_profile'))

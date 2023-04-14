@@ -14,12 +14,12 @@ class RecurringSetScheduleBuilderTest(unittest.TestCase):
         template = params.get('pg_template')
         dates = params.get('pg_dates')
 
-        self.assertEquals('12345', params.get('pg_recurring_profile'))
-        self.assertEquals('2018-01-01 00:00:00', template.get('pg_start_date'))
-        self.assertEquals('week', template.get('pg_interval'))
-        self.assertEquals('10', template.get('pg_period'))
-        self.assertEquals('100', template.get('pg_max_periods'))
-        self.assertEquals('2018-10-10 00:00:00', dates.get('1'));
+        self.assertEqual('12345', params.get('pg_recurring_profile'))
+        self.assertEqual('2018-01-01 00:00:00', template.get('pg_start_date'))
+        self.assertEqual('week', template.get('pg_interval'))
+        self.assertEqual('10', template.get('pg_period'))
+        self.assertEqual('100', template.get('pg_max_periods'))
+        self.assertEqual('2018-10-10 00:00:00', dates.get('1'));
 
         with self.assertRaises(SdkException):
             builder.add_template('2018-01-01 00:00:00', 'wrong_interval', '10', '100')

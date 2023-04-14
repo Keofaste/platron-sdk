@@ -61,4 +61,8 @@ class ReceiptBuilder(RequestBuilder):
         return 'pg_items'
 
     def after_xml_created(self, xml):
-        return xml.replace('<receipt_items>', '').replace('</receipt_items>', '')
+        if pos_start := xml.find('<receipt_items'):
+            pos_end = xml.find('>', pos_start)
+            xml = xml[:pos_start] + xml[pos_end:]
+            xml = xml.replace('</receipt_items>', '')
+        return xml
