@@ -26,6 +26,8 @@ class ReceiptBuilder(RequestBuilder):
         if order_id != None:
             self.pg_order_id = order_id
 
+        self.receipt_items = []
+
     def add_additional_payment(self, payment_type, amount):
         """
         :param payment_type: additional payment type credit|debit (string)
